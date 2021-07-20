@@ -1,0 +1,14 @@
+GITHUB - UPLOAD
+1 Coloca os arquivos que tu queres subir na pasta do repositório Lit-Health.
+2 Clica com o direito em Lit-Health e clica em git bash here.
+3 git add nomedapasta/
+4 Executa o comando git commit -m "comentário de descrição do update"
+5 git push
+
+Vou dar um passo a passo simples
+-Crie uma pasta do repositório no seu Pc, pra isso vc vai no local aonde tu quer criar o repositório, clica com o direito, abre o gitbash e digita "git clone link do repositório"
+-Coloca os arquivos que tu quer upar na pasta do repositório que vc criou
+-Clica com o direito em cima da pasta do repositório e clica em git bash here
+-Executa o comando git add nomedapasta/
+-Executa o comando git commit -m "comentário de descrição do update"
+-Executa o comando git push
