@@ -1,3 +1,4 @@
+teste
 GITHUB - UPLOAD
 1 Coloca os arquivos que tu queres subir na pasta do repositório Lit-Health.
 2 Clica com o direito em Lit-Health e clica em git bash here.
