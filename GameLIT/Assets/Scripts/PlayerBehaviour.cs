@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
     Rigidbody2D body;
     SpriteRenderer sprite;
+    Animator anim;
     float moveX = 0;
     bool jumpPressed = false;
     public float speed;
@@ -14,8 +16,12 @@ public class PlayerBehaviour : MonoBehaviour {
     void Start() {
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
+    void FixedUpdate() {
+        SetAnim();
+    }
 
     void Update() {
         moveX = Input.GetAxis("Horizontal");
@@ -42,5 +48,10 @@ public class PlayerBehaviour : MonoBehaviour {
 
     void Jump() {
         body.AddForce(new Vector2(0, jumpForce));
+    }
+
+    void SetAnim() {
+        anim.SetFloat("speedX", Math.Abs(body.velocity.x));
+        anim.SetFloat("speedY", body.velocity.y);
     }
 }

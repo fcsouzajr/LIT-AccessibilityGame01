@@ -10,7 +10,7 @@ public class Collectable : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            image.active = true;
+            image.SetActive(true);
         }
     }
 }
