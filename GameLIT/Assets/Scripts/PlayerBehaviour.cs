@@ -5,13 +5,22 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour {
 
+    [Header("Components")]
     Rigidbody2D body;
     SpriteRenderer sprite;
     Animator anim;
-    float moveX = 0;
-    bool jumpPressed = false;
+
+    [Header("Jump Variables")]
+    public float jumpVelocity;
+    public float fallMultiplier;
+    public float groundCheckRadius;
+    bool isOnFloor;
+    public Transform groundCheck;
+    public LayerMask whatIsGround;
+
+    [Header("Move Variables")]
     public float speed;
-    public float jumpForce;
+    float moveX = 0;
 
     void Start() {
         body = GetComponent<Rigidbody2D>();
@@ -20,22 +29,23 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        SetAnim();
-    }
-
-    void Update() {
         moveX = Input.GetAxis("Horizontal");
-        jumpPressed = Input.GetButtonDown("Jump");
+        isOnFloor = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+
+        if (body.velocity.y < 0)
+            body.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier-1) * Time.deltaTime;
+
+        if (Input.GetButtonDown("Jump") && isOnFloor)
+            Jump();
 
         if (moveX != 0)
             Walk();
 
-        if (jumpPressed)
-            Jump();
-
-        if (body.velocity.x > 0 && sprite.flipX ||
-            body.velocity.x < 0 && !sprite.flipX)
+        if (moveX > 0 && sprite.flipX ||
+            moveX < 0 && !sprite.flipX)
             Flip();
+
+        SetAnim();
     }
 
     void Flip() {
@@ -47,11 +57,17 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     void Jump() {
-        body.AddForce(new Vector2(0, jumpForce));
+        body.velocity = Vector2.up * jumpVelocity;
     }
 
     void SetAnim() {
         anim.SetFloat("speedX", Math.Abs(body.velocity.x));
         anim.SetFloat("speedY", body.velocity.y);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 }
