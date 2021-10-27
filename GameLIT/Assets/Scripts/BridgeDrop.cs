@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BridgeDrop : MonoBehaviour {
 
+    // Animator anim;
     Animator anim;
 
     void Start() {
