@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-
     public float speed;
     public float walkTime;
     private float timer; 
@@ -15,38 +14,61 @@ public class Enemy : MonoBehaviour {
     public Transform detector2;
     public LayerMask whatIsPlayer;
     public Transform playerCheck;
-    public float playerCheckRadius = 0.68f; 
+    public float playerCheckRadius = 0.68f;
+    public GameObject player;
+    public bool playerIsInside;
+    public Animator anim;
+    public float delayAttackValue;
+    public float delayAttack;
+
     void Start () {
         rig = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-	}
+        player = GameObject.FindGameObjectWithTag("Player");
+        anim = GetComponent<Animator>();
+    }
 	
 	void FixedUpdate () {
         timer += Time.deltaTime;
+        delayAttack -= Time.deltaTime; 
         playerDetected = Physics2D.Linecast(detector1.position, detector2.position, whatIsPlayer);
-        if (playerDetected)
-        {
-            print("dale macio"); 
-        }
+        playerIsInside = Physics2D.OverlapCircle(playerCheck.position, playerCheckRadius, whatIsPlayer);
+        if (playerDetected) {
 
-        if(timer >= walkTime)
-        {
-            walkRight = !walkRight; 
-            timer = 0f; 
-        }
+            if (playerIsInside && delayAttack <= 0)
+            {
+                Debug.Log("delayAttack: " +delayAttack); 
+                delayAttack = delayAttackValue; 
+                anim.SetTrigger("Attack"); 
+            }
+            else if(!playerIsInside)
+            {  
+                if (player.transform.position.x < transform.position.x)
+                {
+                    transform.eulerAngles = new Vector2(0, 0);
+                    rig.velocity = Vector2.left * speed;
+                }
+                else
+                {
+                    transform.eulerAngles = new Vector2(0, 180);
+                    rig.velocity = Vector2.right * speed;
+                }
+            }
+        } else {
+            if(timer >= walkTime) {
+                walkRight = !walkRight; 
+                timer = 0f; 
+            }
 
-        if (walkRight)
-        {
-            transform.eulerAngles = new Vector2(0,180); 
-            rig.velocity = Vector2.right * speed;
-        }
-        else
-        {
-            transform.eulerAngles = new Vector2(0, 0);
-            rig.velocity = Vector2.left * speed;
-        }
+            if (walkRight) {
+                transform.eulerAngles = new Vector2(0,180); 
+                rig.velocity = Vector2.right * speed;
+            } else {
+                transform.eulerAngles = new Vector2(0, 0);
+                rig.velocity = Vector2.left * speed;
+            }
 
-          
+        }
         
 
 	}
