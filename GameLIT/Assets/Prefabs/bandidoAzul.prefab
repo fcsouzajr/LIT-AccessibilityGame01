@@ -37,8 +37,8 @@ GameObject:
   - component: {fileID: 212112701354566694}
   - component: {fileID: 95977634752515610}
   - component: {fileID: 50568071788309694}
-  - component: {fileID: 61826313550588172}
   - component: {fileID: 114254034437752596}
+  - component: {fileID: 70162842648838996}
   m_Layer: 11
   m_Name: bandidoAzul
   m_TagString: Untagged
@@ -150,9 +150,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &61826313550588172
-BoxCollider2D:
+  m_Constraints: 4
+--- !u!70 &70162842648838996
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -163,19 +163,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.48, y: 0.48}
-    newSize: {x: 0.48, y: 0.48}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.48, y: 0.48}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0036957264, y: -0.032859765}
+  m_Size: {x: 0.17695539, y: 0.37571916}
+  m_Direction: 0
 --- !u!95 &95977634752515610
 Animator:
   serializedVersion: 3

@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour {
     public Transform playerCheck;
     public float playerCheckRadius = 0.68f;
     public GameObject player;
-    public bool playerIsInside;
+    public bool playerIsOnRange;
     public Animator anim;
     public float delayAttackValue;
     public float delayAttack;
@@ -32,15 +32,15 @@ public class Enemy : MonoBehaviour {
         timer += Time.deltaTime;
         delayAttack -= Time.deltaTime; 
         playerDetected = Physics2D.Linecast(detector1.position, detector2.position, whatIsPlayer);
-        playerIsInside = Physics2D.OverlapCircle(playerCheck.position, playerCheckRadius, whatIsPlayer);
+        playerIsOnRange = Physics2D.OverlapCircle(playerCheck.position, playerCheckRadius, whatIsPlayer);
         if (playerDetected) {
 
-            if (playerIsInside && delayAttack <= 0)
+            if (playerIsOnRange && delayAttack <= 0)
             {
                 delayAttack = delayAttackValue; 
                 anim.SetTrigger("attack"); 
             }
-            else if(!playerIsInside)
+            else if(!playerIsOnRange)
             {  
                 if (player.transform.position.x < transform.position.x)
                 {
@@ -72,13 +72,20 @@ public class Enemy : MonoBehaviour {
         anim.SetFloat("speedX", Mathf.Abs(body.velocity.x));
 	}
 
-    void Flip()
-    {
+    void Flip() {
         sprite.flipX = !sprite.flipX; 
     }
 
-    private void OnDrawGizmosSelected()
-    {
+    void Attack() {
+        if (playerIsOnRange)
+            player.SendMessage("Damage");
+    }
+
+    public void Damage() {
+        print("inimigo toma dano");
+    }
+
+    private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(playerCheck.position, playerCheckRadius);
     }

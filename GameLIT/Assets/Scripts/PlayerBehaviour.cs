@@ -9,7 +9,6 @@ public class PlayerBehaviour : MonoBehaviour {
 
     [Header("UI")]
     private Image hpBar;
-    //dale macio
     private int life = 100; 
 
     [Header("Components")]
@@ -28,20 +27,20 @@ public class PlayerBehaviour : MonoBehaviour {
     [Header("Move Variables")]
     public float speed;
     float moveX = 0;
+    float delayAtackValue = 0.3f;
+    float delayAttack = 0;
 
     [Header("Attack Variables")]
     public Transform enemyCheck;
     public float enemyCheckRadius;
     public LayerMask whatIsEnemy;
 
-
-
     void Start() {
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
         hpBar = GameObject.FindGameObjectWithTag("hp_barra").GetComponent<Image>();
-        
     }
 
     void Update() {
@@ -64,8 +63,13 @@ public class PlayerBehaviour : MonoBehaviour {
             moveX < 0 && !sprite.flipX)
             Flip();
 
+        if (Input.GetKeyDown("l"))
+            Damage();
+
+        delayAttack -= (delayAttack > 0) ? Time.deltaTime : 0;
+
         SetAnim();
-        teste_hp_bar();
+        AttStats();
     }
 
     void Flip() {
@@ -74,7 +78,8 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     void Walk() {
-        body.velocity = new Vector2(moveX * speed, body.velocity.y);
+        if(delayAttack <= 0)
+            body.velocity = new Vector2(moveX * speed, body.velocity.y);
     }
 
     void Jump() {
@@ -87,28 +92,27 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     void Attack() {
+        delayAttack = delayAtackValue;
+        body.velocity = Vector2.right * 0;
+
+        Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(enemyCheck.position, enemyCheckRadius, whatIsEnemy);
+        for(int i = 0; i < enemiesInRange.Length; i++) {
+            enemiesInRange[i].SendMessage("Damage");
+        }
     }
 
-    private void OnDrawGizmosSelected()
-    {
+    public void Damage() {
+        life -= life > 10 ? 10 : life;
+    }
+
+    private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         Gizmos.DrawWireSphere(enemyCheck.position, enemyCheckRadius);
     }
 
-    //dale macio aqui também
-    void perderHP()
-    {
-        life -= 10;  
+    void AttStats() {
         hpBar.rectTransform.sizeDelta = new Vector2(life, 30);
-    }
-
-    void teste_hp_bar()
-    {
-        if (Input.GetKeyDown("x"))
-        {
-            perderHP();
-        }
     }
 
 }
