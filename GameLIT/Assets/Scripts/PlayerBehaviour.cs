@@ -1,9 +1,16 @@
 ﻿using System;
 using System.Collections;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerBehaviour : MonoBehaviour {
+
+    [Header("UI")]
+    private Image hpBar;
+    //dale macio
+    private int life = 10; 
 
     [Header("Components")]
     Rigidbody2D body;
@@ -27,10 +34,14 @@ public class PlayerBehaviour : MonoBehaviour {
     public float enemyCheckRadius;
     public LayerMask whatIsEnemy;
 
+
+
     void Start() {
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        hpBar = GameObject.FindGameObjectWithTag("hp_barra").GetComponent<Image>();
+        
     }
 
     void Update() {
@@ -54,6 +65,7 @@ public class PlayerBehaviour : MonoBehaviour {
             Flip();
 
         SetAnim();
+        teste_hp_bar();
     }
 
     void Flip() {
@@ -83,4 +95,21 @@ public class PlayerBehaviour : MonoBehaviour {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         Gizmos.DrawWireSphere(enemyCheck.position, enemyCheckRadius);
     }
+
+    //dale macio aqui também
+    void perderHP()
+    {
+        int hp_to_bar = life * 10;
+        hp_to_bar -= 10; 
+        hpBar.rectTransform.sizeDelta = new Vector2(hp_to_bar, 30);
+    }
+
+    void teste_hp_bar()
+    {
+        if (Input.GetKeyDown("x"))
+        {
+            perderHP();
+        }
+    }
+
 }
