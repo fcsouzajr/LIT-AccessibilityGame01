@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour {
     public float speed;
     public float walkTime;
     private float timer; 
-    private Rigidbody2D rig;
+    private Rigidbody2D body;
     private bool walkRight;
     private SpriteRenderer sprite;
     public bool playerDetected;
@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour {
     public float delayAttack;
 
     void Start () {
-        rig = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
@@ -37,21 +37,20 @@ public class Enemy : MonoBehaviour {
 
             if (playerIsInside && delayAttack <= 0)
             {
-                Debug.Log("delayAttack: " +delayAttack); 
                 delayAttack = delayAttackValue; 
-                anim.SetTrigger("Attack"); 
+                anim.SetTrigger("attack"); 
             }
             else if(!playerIsInside)
             {  
                 if (player.transform.position.x < transform.position.x)
                 {
                     transform.eulerAngles = new Vector2(0, 0);
-                    rig.velocity = Vector2.left * speed;
+                    body.velocity = Vector2.left * speed;
                 }
                 else
                 {
                     transform.eulerAngles = new Vector2(0, 180);
-                    rig.velocity = Vector2.right * speed;
+                    body.velocity = Vector2.right * speed;
                 }
             }
         } else {
@@ -62,15 +61,15 @@ public class Enemy : MonoBehaviour {
 
             if (walkRight) {
                 transform.eulerAngles = new Vector2(0,180); 
-                rig.velocity = Vector2.right * speed;
+                body.velocity = Vector2.right * speed;
             } else {
                 transform.eulerAngles = new Vector2(0, 0);
-                rig.velocity = Vector2.left * speed;
+                body.velocity = Vector2.left * speed;
             }
 
         }
-        
 
+        anim.SetFloat("speedX", Mathf.Abs(body.velocity.x));
 	}
 
     void Flip()
