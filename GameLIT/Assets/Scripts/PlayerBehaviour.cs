@@ -10,7 +10,7 @@ public class PlayerBehaviour : MonoBehaviour {
     [Header("UI")]
     private Image hpBar;
     //dale macio
-    private int life = 10; 
+    private int life = 100; 
 
     [Header("Components")]
     Rigidbody2D body;
@@ -99,9 +99,8 @@ public class PlayerBehaviour : MonoBehaviour {
     //dale macio aqui também
     void perderHP()
     {
-        int hp_to_bar = life * 10;
-        hp_to_bar -= 10; 
-        hpBar.rectTransform.sizeDelta = new Vector2(hp_to_bar, 30);
+        life -= 10;  
+        hpBar.rectTransform.sizeDelta = new Vector2(life, 30);
     }
 
     void teste_hp_bar()
