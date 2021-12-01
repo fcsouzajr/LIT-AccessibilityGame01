@@ -9,7 +9,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
     [Header("UI")]
     private Image hpBar;
-    private int life = 100; 
+    private int life = 100;
 
     [Header("Components")]
     Rigidbody2D body;

@@ -7,6 +7,7 @@ public class DialogueTrigger : MonoBehaviour {
 
     public GameObject dialogueBox;
     public Text textLabel;
+    [TextArea(2,5)]
     public string dialogueText;
 
     private void OnTriggerEnter2D(Collider2D collision) {

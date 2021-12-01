@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour {
 
-    public GameObject image;
+    public string itemName;
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
             Destroy(gameObject);
-            image.SetActive(true);
+            GiveItem();
         }
+    }
+
+    void GiveItem() {
+        GameObject.FindGameObjectWithTag("Inventory").SendMessage("AddItem", itemName);
     }
 }
