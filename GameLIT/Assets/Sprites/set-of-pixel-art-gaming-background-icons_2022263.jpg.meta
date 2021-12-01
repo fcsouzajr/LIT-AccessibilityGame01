@@ -5,6 +5,7 @@ TextureImporter:
     21300000: set-of-pixel-art-gaming-background-icons_2022263_0
     21300002: set-of-pixel-art-gaming-background-icons_2022263_1
     21300004: set-of-pixel-art-gaming-background-icons_2022263_2
+    21300006: set-of-pixel-art-gaming-background-icons_2022263_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -129,6 +130,20 @@ TextureImporter:
         height: 312
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: set-of-pixel-art-gaming-background-icons_2022263_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 656
+        width: 308
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
