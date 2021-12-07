@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerBehaviour : MonoBehaviour {
@@ -103,6 +104,10 @@ public class PlayerBehaviour : MonoBehaviour {
 
     public void Damage() {
         life -= life > 10 ? 10 : life;
+        if (life <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void OnDrawGizmosSelected() {
@@ -114,5 +119,7 @@ public class PlayerBehaviour : MonoBehaviour {
     void AttStats() {
         hpBar.rectTransform.sizeDelta = new Vector2(life, 30);
     }
+
+
 
 }
