@@ -52,10 +52,12 @@ public class PlayerBehaviour : MonoBehaviour {
             anim.SetTrigger("attack");
 
         if (body.velocity.y < 0)
-            body.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier-1) * Time.deltaTime;
+            body.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
 
-        if (Input.GetButtonDown("Jump") && isOnFloor)
+        if (Input.GetButtonDown("Jump") && isOnFloor) {
+            FindObjectOfType<AudioManager>().Play("PlayerJump");
             Jump();
+        }
 
         if (moveX != 0)
             Walk();
@@ -93,6 +95,7 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     void Attack() {
+        FindObjectOfType<AudioManager>().Play("PlayerAttack");
         delayAttack = delayAtackValue;
         body.velocity = Vector2.right * 0;
 

@@ -339,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomedacena: SampleScene
+  backgroundAudioName: BackgroundScene1
 --- !u!1 &885130552
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomedacena: 
+  backgroundAudioName: 
 --- !u!114 &1763472020
 MonoBehaviour:
   m_ObjectHideFlags: 0

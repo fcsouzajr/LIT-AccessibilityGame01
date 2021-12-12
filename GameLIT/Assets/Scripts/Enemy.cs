@@ -93,6 +93,7 @@ public class Enemy : MonoBehaviour {
     }
 
     void Attack() {
+        FindObjectOfType<AudioManager>().Play("EnemyAttack");
         if (playerIsOnRange)
             player.SendMessage("Damage");
     }
