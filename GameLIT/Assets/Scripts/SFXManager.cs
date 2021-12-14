@@ -2,18 +2,11 @@
 using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour {
+public class SFXManager : MonoBehaviour {
 
     public Audio[] audios;
-    public static AudioManager instance;
 
     void Awake() {
-        if (instance == null) {
-            instance = this;
-        } else {
-            Destroy(gameObject);
-            return;
-        }
 
         foreach (Audio audio in audios) {
             audio.audioSource = gameObject.AddComponent<AudioSource>();

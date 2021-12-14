@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4953095079293422}
   - component: {fileID: 114311057804651540}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: SFXManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,14 +71,4 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: d8d0e7b714efc374e919c6922ed53741, type: 3}
     volume: 1
     loop: 0
-    audioSource: {fileID: 0}
-  - name: BackgroundScene1
-    audioClip: {fileID: 8300000, guid: 4887d4387369e9c4da69dafa7f35ff45, type: 3}
-    volume: 1
-    loop: 1
-    audioSource: {fileID: 0}
-  - name: BackgroundMenu
-    audioClip: {fileID: 8300000, guid: 372b8fc2ce40ef24bb1c4a6de625f9c5, type: 3}
-    volume: 1
-    loop: 1
     audioSource: {fileID: 0}

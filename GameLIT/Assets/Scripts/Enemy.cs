@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour {
     public float delayAttack;
     GameObject player;
 
-    [Header("Grount Detecting Variables")]
+    [Header("Ground Detecting Variables")]
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour {
                         delayAttack = delayAttackValue;
                         anim.SetTrigger("attack");
                     }
-                } else {
+                } else if(delayAttack <= 0) {
                     string directionAux = player.transform.position.x > transform.position.x ? "right" : "left";
                     Move(directionAux);
                 }
@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviour {
     }
 
     void Attack() {
-        FindObjectOfType<AudioManager>().Play("EnemyAttack");
+        FindObjectOfType<SFXManager>().Play("EnemyAttack");
         if (playerIsOnRange)
             player.SendMessage("Damage");
     }

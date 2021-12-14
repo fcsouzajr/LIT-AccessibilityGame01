@@ -8,7 +8,7 @@ public class Collectable : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
-            FindObjectOfType<AudioManager>().Play("Collectable");
+            FindObjectOfType<SFXManager>().Play("Collectable");
             Destroy(gameObject);
             GiveItem();
         }

@@ -339,7 +339,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomedacena: SampleScene
-  backgroundAudioName: BackgroundScene1
 --- !u!1 &885130552
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +409,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 885130552}
+--- !u!1001 &1107860749
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4535109758589886, guid: b4b96f34073333b4b90a0560c5f92006, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535109758589886, guid: b4b96f34073333b4b90a0560c5f92006, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535109758589886, guid: b4b96f34073333b4b90a0560c5f92006, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535109758589886, guid: b4b96f34073333b4b90a0560c5f92006, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535109758589886, guid: b4b96f34073333b4b90a0560c5f92006, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535109758589886, guid: b4b96f34073333b4b90a0560c5f92006, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535109758589886, guid: b4b96f34073333b4b90a0560c5f92006, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535109758589886, guid: b4b96f34073333b4b90a0560c5f92006, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114521629400864510, guid: b4b96f34073333b4b90a0560c5f92006,
+        type: 2}
+      propertyPath: levelSoundtrack
+      value: MainMenu
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b4b96f34073333b4b90a0560c5f92006, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1305906691
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,7 +738,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nomedacena: 
-  backgroundAudioName: 
 --- !u!114 &1763472020
 MonoBehaviour:
   m_ObjectHideFlags: 0
