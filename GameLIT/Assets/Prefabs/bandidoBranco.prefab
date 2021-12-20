@@ -234,8 +234,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   playerIsOnRange: 0
+  attackDamage: 10
   delayAttackValue: 1.5
   delayAttack: 0
+  isDead: 0
+  hp: 30
   groundCheck: {fileID: 4728747267511662}
   groundCheckRadius: 0.15
   whatIsGround:

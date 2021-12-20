@@ -10,7 +10,7 @@ public class BridgeDrop : MonoBehaviour {
 
     void Start() {
         anim = GetComponent<Animator>();
-        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<PlayerInventory>();
+        inventory = FindObjectOfType<PlayerInventory>().GetComponent<PlayerInventory>();
     }
 
     void OnCollisionEnter2D(Collision2D collision) {

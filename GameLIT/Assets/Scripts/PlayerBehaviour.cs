@@ -10,7 +10,8 @@ public class PlayerBehaviour : MonoBehaviour {
 
     [Header("UI")]
     private Image hpBar;
-    private int life = 100;
+    private float hp = 100f;
+    bool isDead = false;
 
     [Header("Components")]
     Rigidbody2D body;
@@ -32,6 +33,7 @@ public class PlayerBehaviour : MonoBehaviour {
     float delayAttack = 0;
 
     [Header("Attack Variables")]
+    public float attackDamage;
     public Transform enemyCheck;
     public float enemyCheckRadius;
     public LayerMask whatIsEnemy;
@@ -45,32 +47,33 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     void Update() {
-        moveX = Input.GetAxis("Horizontal");
-        isOnFloor = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        if (!isDead) {
+            moveX = Input.GetAxis("Horizontal");
+            isOnFloor = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
-        if (Input.GetButtonDown("Fire1") && isOnFloor)
-            anim.SetTrigger("attack");
+            if (Input.GetButtonDown("Fire1") && isOnFloor)
+                anim.SetTrigger("attack");
 
-        if (body.velocity.y < 0)
-            body.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            if (body.velocity.y < 0)
+                body.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
 
-        if (Input.GetButtonDown("Jump") && isOnFloor) {
-            FindObjectOfType<SFXManager>().Play("PlayerJump");
-            Jump();
+            if (Input.GetButtonDown("Jump") && isOnFloor) {
+                FindObjectOfType<SFXManager>().Play("PlayerJump");
+                Jump();
+            }
+
+            if (moveX != 0)
+                Walk();
+
+            if (moveX > 0 && sprite.flipX ||
+                moveX < 0 && !sprite.flipX)
+                Flip();
+
+            if (Input.GetKeyDown("l"))
+                hp += 200f;
+
+            delayAttack -= (delayAttack > 0) ? Time.deltaTime : 0;
         }
-
-        if (moveX != 0)
-            Walk();
-
-        if (moveX > 0 && sprite.flipX ||
-            moveX < 0 && !sprite.flipX)
-            Flip();
-
-        if (Input.GetKeyDown("l"))
-            Damage();
-
-        delayAttack -= (delayAttack > 0) ? Time.deltaTime : 0;
-
         SetAnim();
         AttStats();
     }
@@ -101,16 +104,22 @@ public class PlayerBehaviour : MonoBehaviour {
 
         Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(enemyCheck.position, enemyCheckRadius, whatIsEnemy);
         for(int i = 0; i < enemiesInRange.Length; i++) {
-            enemiesInRange[i].SendMessage("Damage");
+            enemiesInRange[i].SendMessage("Damage", attackDamage);
         }
     }
 
-    public void Damage() {
-        life -= life > 10 ? 10 : life;
-        if (life <= 0)
-        {
-            SceneManager.LoadScene(0);
+    public void Damage(float damage) {
+        hp -= hp > damage ? damage : hp;
+        if (hp <= 0 && !isDead) {
+            Die();
         }
+    }
+
+    void Die() {
+        isDead = true;
+        body.velocity = Vector2.zero;
+        anim.SetTrigger("die");
+        StartCoroutine(FindObjectOfType<Transition>().DeathTransition());
     }
 
     private void OnDrawGizmosSelected() {
@@ -120,9 +129,6 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     void AttStats() {
-        hpBar.rectTransform.sizeDelta = new Vector2(life, 30);
+        hpBar.rectTransform.sizeDelta = new Vector2(hp, 30);
     }
-
-
-
 }

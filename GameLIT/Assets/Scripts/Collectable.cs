@@ -15,6 +15,6 @@ public class Collectable : MonoBehaviour {
     }
 
     void GiveItem() {
-        GameObject.FindGameObjectWithTag("Inventory").SendMessage("AddItem", itemName);
+        FindObjectOfType<PlayerInventory>().SendMessage("AddItem", itemName);
     }
 }

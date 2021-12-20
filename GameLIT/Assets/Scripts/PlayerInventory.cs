@@ -6,15 +6,6 @@ public class PlayerInventory : MonoBehaviour {
     public List<string> items = new List<string>();
     public GameObject InventoryUI;
 
-    //private void Update() {
-    //    if(Input.GetKeyDown("i")) {
-    //        AddItem("key");
-    //    }
-    //    if (Input.GetKeyDown("o")) {
-    //       RemoveItem("key");
-    //    }
-    //}
-
     public void AddItem(string itemName) {
         items.Add(itemName);
         InventoryUI.SendMessage("AddItem", itemName);

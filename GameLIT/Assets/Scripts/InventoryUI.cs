@@ -10,15 +10,6 @@ public class InventoryUI : MonoBehaviour {
     public Vector2 startPosition = new Vector2(350f, 175f);
     public float spaceBetweenItems;
 
-    //private void Update() {
-    //    if(Input.GetKeyDown("i")) {
-    //        AddItem("key");
-    //    }
-    //    if (Input.GetKeyDown("o")) {
-    //        RemoveItem("key");
-    //    }
-    //}
-
     void AddItem(string itemName) {
         int itemID = FindItem(itemName);
         items.Add(knownItems[itemID]);

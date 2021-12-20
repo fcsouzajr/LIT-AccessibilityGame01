@@ -25,8 +25,11 @@ public class Enemy : MonoBehaviour {
     public bool playerIsOnRange;
 
     [Header("Attack Variables")]
+    public float attackDamage;
     public float delayAttackValue;
     public float delayAttack;
+    public bool isDead = false;
+    public float hp = 30f;
     GameObject player;
 
     [Header("Ground Detecting Variables")]
@@ -49,31 +52,32 @@ public class Enemy : MonoBehaviour {
         playerDetected = Physics2D.Linecast(detector1.position, detector2.position, whatIsPlayer) ? true : playerDetected;
         willNotFall = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
-        if(willNotFall) {
-            if(playerDetected) {
-                if(playerIsOnRange) {
-                    if(delayAttack <= 0) {
-                        delayAttack = delayAttackValue;
-                        anim.SetTrigger("attack");
+        if (!isDead) {
+            if (willNotFall) {
+                if (playerDetected) {
+                    if (playerIsOnRange) {
+                        if (delayAttack <= 0) {
+                            delayAttack = delayAttackValue;
+                            anim.SetTrigger("attack");
+                        }
+                    } else if (delayAttack <= 0) {
+                        string directionAux = player.transform.position.x > transform.position.x ? "right" : "left";
+                        Move(directionAux);
                     }
-                } else if(delayAttack <= 0) {
-                    string directionAux = player.transform.position.x > transform.position.x ? "right" : "left";
+                } else {
+                    if (timer >= walkTime) {
+                        walkRight = !walkRight;
+                        timer = 0f;
+                    }
+                    string directionAux = walkRight ? "right" : "left";
                     Move(directionAux);
                 }
             } else {
-                if (timer >= walkTime) {
-                    walkRight = !walkRight;
-                    timer = 0f;
-                }
-                string directionAux = walkRight ? "right" : "left";
-                Move(directionAux);
+                body.velocity = new Vector2(0f, body.velocity.y);
+                playerDetected = false;
+                Flip();
             }
-        } else {
-            body.velocity = new Vector2(0f, body.velocity.y);
-            playerDetected = false;
-            Flip();
         }
-
         if (body.velocity.x > 0 && !sprite.flipX ||
             body.velocity.x < 0 && sprite.flipX)
             Flip();
@@ -95,11 +99,22 @@ public class Enemy : MonoBehaviour {
     void Attack() {
         FindObjectOfType<SFXManager>().Play("EnemyAttack");
         if (playerIsOnRange)
-            player.SendMessage("Damage");
+            player.SendMessage("Damage", attackDamage);
     }
 
-    public void Damage() {
-        print("inimigo toma dano");
+    public void Damage(float damage) {
+        hp -= hp > damage ? damage : hp;
+        if (hp <= 0 && !isDead) {
+            StartCoroutine(Die());
+        }
+    }
+
+    IEnumerator Die() {
+        isDead = true;
+        body.velocity = Vector2.zero;
+        anim.SetTrigger("die");
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected() {
