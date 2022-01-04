@@ -12,7 +12,7 @@ public class SecondPhaseBridgeScript : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            bridge.SetActive(Activate); 
+            bridge.SetActive(true);  
         }
     }
 
