@@ -7516,8 +7516,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1179716967}
   - component: {fileID: 1179716968}
-  - component: {fileID: 1179716970}
-  - component: {fileID: 1179716969}
   m_Layer: 0
   m_Name: escada (1)
   m_TagString: Untagged
@@ -7582,44 +7580,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &1179716969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1179716966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0b5c8a009c3a14a8c832b05f33f685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items: []
-  InventoryUI: {fileID: 0}
---- !u!114 &1179716970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1179716966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10c3a67f35a5a47458c48e7a7be869fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpVelocity: 0
-  fallMultiplier: 0
-  groundCheckRadius: 0
-  groundCheck: {fileID: 0}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  speed: 0
-  attackDamage: 0
-  enemyCheck: {fileID: 0}
-  enemyCheckRadius: 0
-  whatIsEnemy:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1199921070
 GameObject:
   m_ObjectHideFlags: 0
