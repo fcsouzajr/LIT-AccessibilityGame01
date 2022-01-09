@@ -58,7 +58,6 @@ public class PlayerBehaviour : MonoBehaviour {
                 body.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
 
             if (Input.GetButtonDown("Jump") && isOnFloor) {
-                FindObjectOfType<SFXManager>().Play("PlayerJump");
                 Jump();
             }
 
@@ -89,7 +88,10 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     void Jump() {
-        body.velocity = Vector2.up * jumpVelocity;
+        if (delayAttack <= 0) {
+            FindObjectOfType<SFXManager>().Play("PlayerJump");
+            body.velocity = Vector2.up * jumpVelocity;
+        }
     }
 
     void SetAnim() {
