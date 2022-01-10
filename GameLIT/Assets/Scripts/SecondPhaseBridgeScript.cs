@@ -10,9 +10,12 @@ public class SecondPhaseBridgeScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && Activate == true)
         {
             bridge.SetActive(true);  
+        }else if(collision.gameObject.tag == "Player" && Activate == false)
+        {
+            bridge.SetActive(false); 
         }
     }
 

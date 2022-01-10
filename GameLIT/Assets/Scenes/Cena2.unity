@@ -123,8 +123,8 @@ GameObject:
   - component: {fileID: 48243889}
   - component: {fileID: 48243892}
   - component: {fileID: 48243891}
-  - component: {fileID: 48243890}
   - component: {fileID: 48243893}
+  - component: {fileID: 48243890}
   m_Layer: 0
   m_Name: key4
   m_TagString: Untagged
@@ -153,10 +153,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 48243888}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39d3790273800a4fbe83a0bd89780f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a7c7be1b4a1f244fa5f550941a17c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: key4
+  bridge: {fileID: 48243888}
+  Activate: 0
 --- !u!114 &48243891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,8 +447,8 @@ GameObject:
   - component: {fileID: 404999154}
   - component: {fileID: 404999157}
   - component: {fileID: 404999155}
-  - component: {fileID: 404999156}
   - component: {fileID: 404999158}
+  - component: {fileID: 404999156}
   m_Layer: 0
   m_Name: key1
   m_TagString: Untagged
@@ -489,10 +490,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 404999153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39d3790273800a4fbe83a0bd89780f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a7c7be1b4a1f244fa5f550941a17c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: key1
+  bridge: {fileID: 404999153}
+  Activate: 0
 --- !u!212 &404999157
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -744,8 +746,8 @@ GameObject:
   - component: {fileID: 587415437}
   - component: {fileID: 587415440}
   - component: {fileID: 587415438}
-  - component: {fileID: 587415439}
   - component: {fileID: 587415441}
+  - component: {fileID: 587415439}
   m_Layer: 0
   m_Name: key3
   m_TagString: Untagged
@@ -787,10 +789,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 587415436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39d3790273800a4fbe83a0bd89780f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a7c7be1b4a1f244fa5f550941a17c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: key3
+  bridge: {fileID: 587415436}
+  Activate: 0
 --- !u!212 &587415440
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -870,8 +873,8 @@ GameObject:
   - component: {fileID: 682416623}
   - component: {fileID: 682416626}
   - component: {fileID: 682416624}
-  - component: {fileID: 682416625}
   - component: {fileID: 682416627}
+  - component: {fileID: 682416625}
   m_Layer: 0
   m_Name: key5
   m_TagString: Untagged
@@ -913,10 +916,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 682416622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39d3790273800a4fbe83a0bd89780f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a7c7be1b4a1f244fa5f550941a17c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: key5
+  bridge: {fileID: 682416622}
+  Activate: 0
 --- !u!212 &682416626
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7927,7 +7931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bridge: {fileID: 1666887258}
-  Activate: 0
+  Activate: 1
 --- !u!61 &1423725960
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8610,8 +8614,8 @@ GameObject:
   - component: {fileID: 1840181680}
   - component: {fileID: 1840181678}
   - component: {fileID: 1840181677}
-  - component: {fileID: 1840181679}
   - component: {fileID: 1840181681}
+  - component: {fileID: 1840181679}
   m_Layer: 0
   m_Name: key2
   m_TagString: Untagged
@@ -8666,10 +8670,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1840181675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39d3790273800a4fbe83a0bd89780f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a7c7be1b4a1f244fa5f550941a17c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: key2
+  bridge: {fileID: 1840181675}
+  Activate: 0
 --- !u!212 &1840181680
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9016,6 +9021,63 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1001 &1989138800
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4859147442471706, guid: 9688fd16e0d2dd6478d19b02f41f0e02, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 39.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859147442471706, guid: 9688fd16e0d2dd6478d19b02f41f0e02, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -4.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859147442471706, guid: 9688fd16e0d2dd6478d19b02f41f0e02, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859147442471706, guid: 9688fd16e0d2dd6478d19b02f41f0e02, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859147442471706, guid: 9688fd16e0d2dd6478d19b02f41f0e02, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859147442471706, guid: 9688fd16e0d2dd6478d19b02f41f0e02, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859147442471706, guid: 9688fd16e0d2dd6478d19b02f41f0e02, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859147442471706, guid: 9688fd16e0d2dd6478d19b02f41f0e02, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114127836964474248, guid: 9688fd16e0d2dd6478d19b02f41f0e02,
+        type: 2}
+      propertyPath: triggerButton
+      value: Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 114127836964474248, guid: 9688fd16e0d2dd6478d19b02f41f0e02,
+        type: 2}
+      propertyPath: destination.x
+      value: 39.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114127836964474248, guid: 9688fd16e0d2dd6478d19b02f41f0e02,
+        type: 2}
+      propertyPath: destination.y
+      value: 6.6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9688fd16e0d2dd6478d19b02f41f0e02, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1990443989
 GameObject:
   m_ObjectHideFlags: 0
