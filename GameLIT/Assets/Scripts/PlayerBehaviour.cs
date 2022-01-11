@@ -61,7 +61,7 @@ public class PlayerBehaviour : MonoBehaviour {
                 Jump();
             }
 
-            if (moveX != 0)
+            if (moveX != 0 && delayAttack <= 0)
                 Walk();
 
             if (moveX > 0 && sprite.flipX ||

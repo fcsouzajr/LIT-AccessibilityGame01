@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour {
+public class BossBehaviour : MonoBehaviour {
 
     [Header("Components")]
     Rigidbody2D body;
@@ -11,16 +12,10 @@ public class Enemy : MonoBehaviour {
 
     [Header("Move Variables")]
     public float speed;
-    public float walkTime;
-    private float timer;
-    private bool walkRight;
 
     [Header("Player Detecting Variables")]
-    public Transform detector1;
-    public Transform detector2;
-    public bool playerDetected;
     public Transform playerCheck;
-    public float playerCheckRadius = 0.68f;
+    public float playerCheckRadius;
     public LayerMask whatIsPlayer;
     public bool playerIsOnRange;
 
@@ -28,67 +23,51 @@ public class Enemy : MonoBehaviour {
     public float attackDamage;
     public float delayAttackValue;
     private float delayAttack;
-    private bool isDead = false;
-    public float hp = 30f;
     GameObject player;
 
-    [Header("Ground Detecting Variables")]
-    public Transform groundCheck;
-    public float groundCheckRadius;
-    public LayerMask whatIsGround;
-    public bool willNotFall;
+    [Header("Health Variables")]
+    public float maxHP;
+    public float HP;
+    public Slider HPBar;
+    private bool isDead = false;
 
-    void Start () {
+    void Start() {
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
+
+        HP = maxHP;
+        HPBar.maxValue = maxHP;
+        HPBar.value = HP;
     }
-	
-	void FixedUpdate () {
-        timer += Time.deltaTime;
+
+    void FixedUpdate() {
         delayAttack -= Time.deltaTime;
         playerIsOnRange = Physics2D.OverlapCircle(playerCheck.position, playerCheckRadius, whatIsPlayer);
-        playerDetected = Physics2D.Linecast(detector1.position, detector2.position, whatIsPlayer) ? true : playerDetected;
-        willNotFall = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
         if (!isDead) {
-            if (willNotFall) {
-                if (playerDetected) {
-                    if (playerIsOnRange) {
-                        if (delayAttack <= 0) {
-                            delayAttack = delayAttackValue;
-                            anim.SetTrigger("attack");
-                        }
-                    } else if (delayAttack <= 0) {
-                        string directionAux = player.transform.position.x > transform.position.x ? "right" : "left";
-                        Move(directionAux);
-                    }
-                } else {
-                    if (timer >= walkTime) {
-                        walkRight = !walkRight;
-                        timer = 0f;
-                    }
-                    string directionAux = walkRight ? "right" : "left";
-                    Move(directionAux);
+            if (playerIsOnRange) {
+                if (delayAttack <= 0) {
+                    delayAttack = delayAttackValue;
+                    anim.SetTrigger("attack");
                 }
-            } else {
-                body.velocity = new Vector2(0f, body.velocity.y);
-                playerDetected = false;
-                Flip();
+            } else if (delayAttack <= 0) {
+                string directionAux = player.transform.position.x > transform.position.x ? "right" : "left";
+                Move(directionAux);
             }
         }
+
         if (body.velocity.x > 0 && !sprite.flipX ||
             body.velocity.x < 0 && sprite.flipX)
             Flip();
 
         anim.SetFloat("speedX", Mathf.Abs(body.velocity.x));
-	}
+    }
 
     void Flip() {
         sprite.flipX = !sprite.flipX;
         playerCheck.localPosition = new Vector2(-playerCheck.localPosition.x, playerCheck.localPosition.y);
-        groundCheck.localPosition = new Vector2(-groundCheck.localPosition.x, groundCheck.localPosition.y);
     }
 
     void Move(string direction) {
@@ -103,8 +82,14 @@ public class Enemy : MonoBehaviour {
     }
 
     public void Damage(float damage) {
-        hp -= hp > damage ? damage : hp;
-        if (hp <= 0 && !isDead) {
+        HP -= HP > damage ? damage : HP;
+        HPBar.value = HP;
+
+        if (HP <= 10) {
+            StartCoroutine(FindObjectOfType<Transition>().BossDefeatTransition());
+        }
+
+        if (HP <= 0 && !isDead) {
             StartCoroutine(Die());
         }
     }
@@ -120,7 +105,6 @@ public class Enemy : MonoBehaviour {
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(playerCheck.position, playerCheckRadius);
-        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 
 

@@ -17,4 +17,10 @@ public class Transition : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public IEnumerator BossDefeatTransition() {
+        anim.SetTrigger("fadeIn");
+        yield return new WaitForSeconds(1f);
+        Time.timeScale = 0f;
+    }
 }
