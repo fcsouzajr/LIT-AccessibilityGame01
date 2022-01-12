@@ -15,7 +15,8 @@ public class SecondPhaseBridgeScript : MonoBehaviour {
             bridge.SetActive(true);  
         }else if(collision.gameObject.tag == "Player" && Activate == false)
         {
-            bridge.SetActive(false); 
+            bridge.SetActive(false);
+            FindObjectOfType<SFXManager>().Play("Collectable");
         }
     }
 
