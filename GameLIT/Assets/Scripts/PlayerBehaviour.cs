@@ -9,9 +9,16 @@ using UnityEngine.SceneManagement;
 public class PlayerBehaviour : MonoBehaviour {
 
     [Header("UI")]
-    private Image hpBar;
+    //private Image hpBar;
     private float hp = 100f;
     bool isDead = false;
+    
+    public float maxHP;
+    public float HP;
+    public Slider HPBar;
+    
+
+
 
     [Header("Components")]
     Rigidbody2D body;
@@ -42,8 +49,9 @@ public class PlayerBehaviour : MonoBehaviour {
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-
-        hpBar = GameObject.FindGameObjectWithTag("hp_barra").GetComponent<Image>();
+        
+       // hpBar = GameObject.FindGameObjectWithTag("hp_barra").GetComponent<Image>();
+        
     }
 
     void Update() {
@@ -74,7 +82,8 @@ public class PlayerBehaviour : MonoBehaviour {
             delayAttack -= (delayAttack > 0) ? Time.deltaTime : 0;
         }
         SetAnim();
-        AttStats();
+        //AttStats();
+
     }
 
     void Flip() {
@@ -111,8 +120,9 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     public void Damage(float damage) {
-        hp -= hp > damage ? damage : hp;
-        if (hp <= 0 && !isDead) {
+        HP -= HP > damage ? damage : HP;
+        HPBar.value = HP;
+        if (HP <= 0 && !isDead) {
             Die();
         }
     }
@@ -130,7 +140,7 @@ public class PlayerBehaviour : MonoBehaviour {
         Gizmos.DrawWireSphere(enemyCheck.position, enemyCheckRadius);
     }
 
-    void AttStats() {
-        hpBar.rectTransform.sizeDelta = new Vector2(hp, 30);
-    }
+    //void AttStats() {
+      //  hpBar.rectTransform.sizeDelta = new Vector2(hp, 30);
+    //}
 }

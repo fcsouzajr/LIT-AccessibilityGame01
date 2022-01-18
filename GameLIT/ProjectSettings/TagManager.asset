@@ -6,6 +6,7 @@ TagManager:
   tags:
   - hp_barra
   - Inventory
+  - newHpBar
   layers:
   - Default
   - TransparentFX
