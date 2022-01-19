@@ -38,6 +38,7 @@ public class PlayerBehaviour : MonoBehaviour {
     float moveX = 0;
     float delayAtackValue = 0.3f;
     float delayAttack = 0;
+    public bool canInteract = true;
 
     [Header("Attack Variables")]
     public float attackDamage;
@@ -49,13 +50,10 @@ public class PlayerBehaviour : MonoBehaviour {
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        
-       // hpBar = GameObject.FindGameObjectWithTag("hp_barra").GetComponent<Image>();
-        
     }
 
     void Update() {
-        if (!isDead) {
+        if (!isDead && canInteract) {
             moveX = Input.GetAxis("Horizontal");
             isOnFloor = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
@@ -65,9 +63,8 @@ public class PlayerBehaviour : MonoBehaviour {
             if (body.velocity.y < 0)
                 body.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
 
-            if (Input.GetButtonDown("Jump") && isOnFloor) {
+            if (Input.GetButtonDown("Jump") && isOnFloor)
                 Jump();
-            }
 
             if (moveX != 0 && delayAttack <= 0)
                 Walk();
@@ -81,9 +78,8 @@ public class PlayerBehaviour : MonoBehaviour {
 
             delayAttack -= (delayAttack > 0) ? Time.deltaTime : 0;
         }
-        SetAnim();
-        //AttStats();
 
+        SetAnim();
     }
 
     void Flip() {
@@ -131,7 +127,7 @@ public class PlayerBehaviour : MonoBehaviour {
         isDead = true;
         body.velocity = Vector2.zero;
         anim.SetTrigger("die");
-        StartCoroutine(FindObjectOfType<Transition>().DeathTransition());
+        StartCoroutine(FindObjectOfType<Transition>().DeathTransition(1f));
     }
 
     private void OnDrawGizmosSelected() {
@@ -139,8 +135,4 @@ public class PlayerBehaviour : MonoBehaviour {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         Gizmos.DrawWireSphere(enemyCheck.position, enemyCheckRadius);
     }
-
-    //void AttStats() {
-      //  hpBar.rectTransform.sizeDelta = new Vector2(hp, 30);
-    //}
 }

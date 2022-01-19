@@ -85,7 +85,7 @@ public class BossBehaviour : MonoBehaviour {
         HP -= HP > damage ? damage : HP;
         HPBar.value = HP;
 
-        if (HP <= 10) {
+        if (HP <= 30) {
             StartCoroutine(FindObjectOfType<Transition>().BossDefeatTransition());
         }
 

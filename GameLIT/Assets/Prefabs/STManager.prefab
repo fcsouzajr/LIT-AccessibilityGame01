@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1d3137d18e9b94caedb84cf57c0563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSoundtrack: 
+  levelSoundtrack: Level1
   soundtracks:
   - name: MainMenu
     audioClip: {fileID: 8300000, guid: 372b8fc2ce40ef24bb1c4a6de625f9c5, type: 3}
@@ -60,6 +60,6 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - name: Level1
     audioClip: {fileID: 8300000, guid: 4887d4387369e9c4da69dafa7f35ff45, type: 3}
-    volume: 0.2
+    volume: 0.05
     loop: 0
     audioSource: {fileID: 0}

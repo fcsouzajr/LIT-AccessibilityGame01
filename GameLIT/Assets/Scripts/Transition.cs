@@ -11,8 +11,8 @@ public class Transition : MonoBehaviour {
         anim = gameObject.GetComponent<Animator>();
     }
 
-    public IEnumerator DeathTransition() {
-        yield return new WaitForSeconds(1f);
+    public IEnumerator DeathTransition(float startDelay) {
+        yield return new WaitForSeconds(startDelay);
         anim.SetTrigger("fadeIn");
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
