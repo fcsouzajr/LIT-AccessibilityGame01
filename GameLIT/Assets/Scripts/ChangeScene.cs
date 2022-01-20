@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour {
 
-    public string nomedacena;
+    public string nome_da_cena;
 
-    public void changeS() {
-        SceneManager.LoadScene(nomedacena);
+    public void changeS(string nomeCena) {
+        SceneManager.LoadScene(nomeCena);
     }
 
     public void sair()
@@ -16,4 +16,11 @@ public class ChangeScene : MonoBehaviour {
         Application.Quit();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            changeS(nome_da_cena); 
+        }
+    }
 }
