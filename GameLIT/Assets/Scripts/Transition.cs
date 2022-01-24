@@ -22,5 +22,6 @@ public class Transition : MonoBehaviour {
         anim.SetTrigger("fadeIn");
         yield return new WaitForSeconds(1f);
         Time.timeScale = 0f;
+        SceneManager.LoadScene("Cutscene");
     }
 }
