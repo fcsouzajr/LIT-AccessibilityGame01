@@ -10570,6 +10570,12 @@ Prefab:
       propertyPath: HP
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 212441283349466484, guid: 2d5d10a1810a99b45b5c58842bf2e1c3,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7b93485d16527e643bcfee05165c0366,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d5d10a1810a99b45b5c58842bf2e1c3, type: 2}
   m_IsPrefabParent: 0
