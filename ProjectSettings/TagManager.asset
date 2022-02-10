@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - hp_barra
+  - Inventory
+  - newHpBar
   layers:
   - Default
   - TransparentFX
@@ -13,10 +16,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - "Colet\xE1vel"
+  - Ground
+  - Player
+  - Enemy
   - 
   - 
   - 
