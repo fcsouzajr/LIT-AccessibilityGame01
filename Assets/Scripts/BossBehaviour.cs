@@ -81,11 +81,14 @@ public class BossBehaviour : MonoBehaviour {
             player.SendMessage("Damage", attackDamage);
     }
 
+    //É chamado sempre que o chefão toma dano
     public void Damage(float damage) {
+        //Definição do HP do boss
         HP -= HP > damage ? damage : HP;
         HPBar.value = HP;
 
         if (HP <= 30) {
+            //Se a vida estiver menor ou igual a 30, a rotina para a cutscene é rodada
             StartCoroutine(FindObjectOfType<Transition>().BossDefeatTransition());
         }
 
@@ -102,10 +105,9 @@ public class BossBehaviour : MonoBehaviour {
         Destroy(gameObject);
     }
 
+    //Círculo Collider da espada do boss pra detectar o player dentro do Trigger
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(playerCheck.position, playerCheckRadius);
     }
-
-
 }

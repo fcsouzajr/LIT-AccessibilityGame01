@@ -122,6 +122,4 @@ public class Enemy : MonoBehaviour {
         Gizmos.DrawWireSphere(playerCheck.position, playerCheckRadius);
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
-
-
 }
