@@ -91,18 +91,6 @@ public class BossBehaviour : MonoBehaviour {
             //Se a vida estiver menor ou igual a 30, a rotina para a cutscene é rodada
             StartCoroutine(FindObjectOfType<Transition>().BossDefeatTransition());
         }
-
-        if (HP <= 0 && !isDead) {
-            StartCoroutine(Die());
-        }
-    }
-
-    IEnumerator Die() {
-        isDead = true;
-        body.velocity = Vector2.zero;
-        anim.SetTrigger("die");
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
     }
 
     //Círculo Collider da espada do boss pra detectar o player dentro do Trigger
