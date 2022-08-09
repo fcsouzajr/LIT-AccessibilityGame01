@@ -22,4 +22,6 @@ public class EnemyController : MonoBehaviour
   public float walkTime;
   private float timer;
   private bool walkRight;
+
+  
 }

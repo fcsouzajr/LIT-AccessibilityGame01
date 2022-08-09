@@ -38,14 +38,14 @@ public class Enemy : MonoBehaviour {
     public LayerMask whatIsGround;
     public bool willNotFall;
 
-    void Start () {
+    void Start() {
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
     }
 	
-	void FixedUpdate () {
+	void FixedUpdate() {
         timer += Time.deltaTime;
         delayAttack -= Time.deltaTime;
         playerIsOnRange = Physics2D.OverlapCircle(playerCheck.position, playerCheckRadius, whatIsPlayer);

@@ -18,8 +18,6 @@ public class PlayerBehaviour : MonoBehaviour {
     public Slider HPBar;
     
 
-
-
     [Header("Components")]
     Rigidbody2D body;
     SpriteRenderer sprite;
