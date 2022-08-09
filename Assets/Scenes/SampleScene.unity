@@ -3209,7 +3209,21 @@ Prefab:
     - target: {fileID: 61273298887968830, guid: 9688fd16e0d2dd6478d19b02f41f0e02,
         type: 2}
       propertyPath: m_Size.x
-      value: 0.76721764
+      value: 1.0170918
+      objectReference: {fileID: 0}
+    - target: {fileID: 61273298887968830, guid: 9688fd16e0d2dd6478d19b02f41f0e02,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 1.1660869
+      objectReference: {fileID: 0}
+    - target: {fileID: 61273298887968830, guid: 9688fd16e0d2dd6478d19b02f41f0e02,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 3.3321738
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232368081181780, guid: 9688fd16e0d2dd6478d19b02f41f0e02, type: 2}
+      propertyPath: m_Name
+      value: TeleportEscada
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9688fd16e0d2dd6478d19b02f41f0e02, type: 2}
