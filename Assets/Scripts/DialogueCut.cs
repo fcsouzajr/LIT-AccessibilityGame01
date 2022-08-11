@@ -18,10 +18,14 @@ public class DialogueCut : MonoBehaviour {
     }
     public void Interact()
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, radious, playerLayer);
+        Collider2D hit = Physics2D.OverlapCapsule(transform.position, capsule, playerLayer);
         if(hit != null)
         {
             dc.Speech(speechTxt, actorName);
         }
+    }
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawireShare(transform.position, capsule);
     }
 }
