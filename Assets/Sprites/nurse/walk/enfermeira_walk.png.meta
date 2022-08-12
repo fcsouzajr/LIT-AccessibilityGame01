@@ -1,7 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 1d3ab6e184e17444ab970d4a46e07bd9
 TextureImporter:
   fileIDToRecycleName: {}
+=======
+guid: 2970d6a4ddc2cf0469a8473a0e04396f
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: enfermeira_walk_0
+    21300002: enfermeira_walk_1
+    21300004: enfermeira_walk_2
+    21300006: enfermeira_walk_3
+>>>>>>> bd04b0a7ef97c0a04bdebae33f601dace0eea4d9
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -29,7 +39,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: -1
+=======
+    filterMode: 0
+>>>>>>> bd04b0a7ef97c0a04bdebae33f601dace0eea4d9
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -38,7 +52,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< HEAD
   spriteMode: 1
+=======
+  spriteMode: 2
+>>>>>>> bd04b0a7ef97c0a04bdebae33f601dace0eea4d9
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -59,7 +77,21 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
     textureCompression: 1
+=======
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+>>>>>>> bd04b0a7ef97c0a04bdebae33f601dace0eea4d9
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -67,7 +99,67 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
+<<<<<<< HEAD
     sprites: []
+=======
+    sprites:
+    - serializedVersion: 2
+      name: enfermeira_walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enfermeira_walk_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enfermeira_walk_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enfermeira_walk_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+>>>>>>> bd04b0a7ef97c0a04bdebae33f601dace0eea4d9
     outline: []
     physicsShape: []
   spritePackingTag: 

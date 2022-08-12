@@ -7,6 +7,7 @@ TagManager:
   - hp_barra
   - Inventory
   - newHpBar
+  - Nurse
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Ground
   - Player
   - Enemy
-  - 
+  - Nurse
   - 
   - 
   - 
