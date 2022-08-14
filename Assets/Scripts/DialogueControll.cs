@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueControl : MonoBehaviour {
 
-    [Header("Componentes")]
+    [Header("Components")]
     public GameObject dialogueObj;
     public Text speechText;
     public Text actorNameText;

@@ -16,16 +16,15 @@ public class DialogueCut : MonoBehaviour {
     {
         dc = FindObjectOfType<DialogueControl>();
     }
+    private void FixedUpdate(){
+        Interact();
+    }
     public void Interact()
     {
-        Collider2D hit = Physics2D.OverlapCapsule(transform.position, capsule, playerLayer);
-        if(hit != null)
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, radious, playerLayer);
+        if(hit != null)//collision detected
         {
             dc.Speech(speechTxt, actorName);
         }
-    }
-    public void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawireShare(transform.position, capsule);
     }
 }
