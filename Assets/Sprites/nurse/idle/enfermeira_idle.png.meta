@@ -1,10 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 584add82902851748ad637910dda9e71
-TextureImporter:
-  fileIDToRecycleName: {}
-=======
-guid: 4556e20c77de49d46a3584a790ed2003
 TextureImporter:
   fileIDToRecycleName:
     21300000: enfermeira_idle_0
@@ -13,7 +8,6 @@ TextureImporter:
     21300006: enfermeira_idle_3
     21300008: enfermeira_idle_4
     21300010: enfermeira_idle_5
->>>>>>> bd04b0a7ef97c0a04bdebae33f601dace0eea4d9
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -41,24 +35,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-<<<<<<< HEAD
-    filterMode: -1
-=======
     filterMode: 0
->>>>>>> bd04b0a7ef97c0a04bdebae33f601dace0eea4d9
     aniso: -1
     mipBias: -1
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
-  spriteMode: 1
-=======
   spriteMode: 2
->>>>>>> bd04b0a7ef97c0a04bdebae33f601dace0eea4d9
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -79,9 +65,6 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-<<<<<<< HEAD
-    textureCompression: 1
-=======
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -93,7 +76,6 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
->>>>>>> bd04b0a7ef97c0a04bdebae33f601dace0eea4d9
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,9 +83,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-<<<<<<< HEAD
-    sprites: []
-=======
     sprites:
     - serializedVersion: 2
       name: enfermeira_idle_0
@@ -189,7 +168,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
->>>>>>> bd04b0a7ef97c0a04bdebae33f601dace0eea4d9
     outline: []
     physicsShape: []
   spritePackingTag: 
