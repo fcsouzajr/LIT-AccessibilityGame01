@@ -12,11 +12,39 @@ public class DialogueControl : MonoBehaviour {
 
     [Header("Settings")]
     public float typingSpeed;
+    private string[] sentences;
+    private int index;
 
-    public void Speech(string txt, string actorName)
+    public void Speech(string[] txt, string actorName)
     {
         dialogueObj.SetActive(true);
-        speechText.text = txt;
+        sentences = txt;
         actorNameText.text = actorName;
+        StartCoroutine(TypeSentence());
+    }
+    IEnumerator TypeSentence()
+    {
+        foreach (var letter in sentences[index].ToCharArray())
+        {
+            speechText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+    }
+    public void NextSentence()
+    {
+        if(speechText.text == sentences[index])
+        {
+            if(index < sentences.Length -1)//há texto no array
+            {
+                index++;
+                speechText.text = "";
+                StartCoroutine(TypeSentence());//chama a próxima sentença
+            }else
+            {
+                speechText.text = "";
+                index=0;
+                dialogueObj.SetActive(false);
+            }
+        }
     }
 }
