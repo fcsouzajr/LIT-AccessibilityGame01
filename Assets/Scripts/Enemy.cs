@@ -2,19 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : Character {
 
     [Header("Components")]
-    Rigidbody2D body;
-    SpriteRenderer sprite;
-    Animator anim;
-
-    [Header("Move Variables")]
-    public float speed;
-    public float walkTime;
-    private float timer;
-    private bool walkRight;
-
+    public float hp = 30f;
+    
     [Header("Player Detecting Variables")]
     public Transform detector1;
     public Transform detector2;
@@ -26,17 +18,21 @@ public class Enemy : MonoBehaviour {
 
     [Header("Attack Variables")]
     public float attackDamage;
+    private bool isDead = false;
+    GameObject player;
     public float delayAttackValue;
     private float delayAttack;
-    private bool isDead = false;
-    public float hp = 30f;
-    GameObject player;
 
     [Header("Ground Detecting Variables")]
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
     public bool willNotFall;
+
+    [Header("Move Variables")]
+    public float walkTime;
+    private float timer;
+    private bool walkRight;
 
     void Start() {
         body = GetComponent<Rigidbody2D>();

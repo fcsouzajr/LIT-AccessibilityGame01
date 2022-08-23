@@ -6,13 +6,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class PlayerBehaviour : MonoBehaviour {
+public class PlayerBehaviour : Character {
 
     [Header("UI")]
     //private Image hpBar;
     private float hp = 100f;
     bool isDead = false;
-    
     public float maxHP;
     public float HP;
     public Slider HPBar;
@@ -39,7 +38,6 @@ public class PlayerBehaviour : MonoBehaviour {
     public bool canInteract = true;
 
     [Header("Attack Variables")]
-    public float attackDamage;
     public Transform enemyCheck;
     public float enemyCheckRadius;
     public LayerMask whatIsEnemy;
