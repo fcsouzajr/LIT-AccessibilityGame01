@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 841b0af3aff6b1e41ac0b4e231ca426e
+guid: 7ea49a3b8d39db44494e482282982a14
 TextureImporter:
   fileIDToRecycleName:
     21300000: walls_side_top_0
@@ -405,7 +405,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 0
     aniso: -1
-    mipBias: -100
+    mipBias: -1
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -433,7 +433,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -443,7 +443,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0

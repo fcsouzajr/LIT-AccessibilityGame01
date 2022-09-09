@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: walls_side_top_147
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300294, guid: 841b0af3aff6b1e41ac0b4e231ca426e, type: 3}
+  m_Sprite: {fileID: 21300294, guid: 7ea49a3b8d39db44494e482282982a14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

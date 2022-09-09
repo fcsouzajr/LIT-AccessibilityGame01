@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bce3da605826f684396b1ac38bdb6c32
+guid: 30b68bfe573045c49a33bdd1b6037aa5
 TextureImporter:
   fileIDToRecycleName:
     21300000: env_objects_0
@@ -545,7 +545,6 @@ TextureImporter:
     21301080: env_objects_540
     21301082: env_objects_541
     21301084: env_objects_542
-    21301086: env_objects_543
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -575,7 +574,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 0
     aniso: -1
-    mipBias: -100
+    mipBias: -1
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -603,7 +602,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -613,7 +612,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -8218,20 +8217,6 @@ TextureImporter:
         y: 0
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: env_objects_543
-      rect:
-        serializedVersion: 2
-        x: 329
-        y: 349
-        width: 183
-        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

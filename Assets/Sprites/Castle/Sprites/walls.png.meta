@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4ec1ca871f54032478cd0d55888a86dc
+guid: 018cd6f8e057c314580a2f871e5b1eed
 TextureImporter:
   fileIDToRecycleName:
     21300000: walls_0
@@ -588,7 +588,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 0
     aniso: -1
-    mipBias: -100
+    mipBias: -1
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -616,7 +616,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -626,7 +626,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
