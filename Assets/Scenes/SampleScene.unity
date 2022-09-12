@@ -23325,7 +23325,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 15
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: 6a6bcbe14b6ac6648af1132206816137, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -23361,13 +23361,13 @@ MonoBehaviour:
   HP: 100
   HPBar: {fileID: 2004061700}
   jumpVelocity: 45
-  fallMultiplier: 15
+  fallMultiplier: 10
   groundCheckRadius: 0.3
   groundCheck: {fileID: 1102694778}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 512
-  speed: 10
+  speed: 12
   canInteract: 1
   attackDamage: 10
   enemyCheck: {fileID: 1318808605}
