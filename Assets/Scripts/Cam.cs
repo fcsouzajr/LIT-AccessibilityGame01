@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cam : MonoBehaviour {
+public class Cam : MonoBehaviour
+{
+	private Transform player;
+	public float smooth;
 
-	// Use this for initialization
-	void Start () {
-		
+	void Start()
+	{
+		player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	void LateUpdate()
+	{
+		if(player.position.x >= -1.6)
+		{
+			Vector3 following = new Vector3(player.position.x, player.position.y, transform.position.z);
+			transform.position = Vector3.Lerp(transform.position, following, smooth * Time.deltaTime);
+		}	
 	}
 }
