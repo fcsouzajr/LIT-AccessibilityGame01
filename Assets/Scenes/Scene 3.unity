@@ -1261,12 +1261,22 @@ Prefab:
     - target: {fileID: 114874847583408240, guid: 2d5d10a1810a99b45b5c58842bf2e1c3,
         type: 2}
       propertyPath: jumpVelocity
-      value: 45
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 114874847583408240, guid: 2d5d10a1810a99b45b5c58842bf2e1c3,
         type: 2}
       propertyPath: fallMultiplier
-      value: 15
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 50498986714770622, guid: 2d5d10a1810a99b45b5c58842bf2e1c3,
+        type: 2}
+      propertyPath: m_Mass
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50498986714770622, guid: 2d5d10a1810a99b45b5c58842bf2e1c3,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d5d10a1810a99b45b5c58842bf2e1c3, type: 2}
