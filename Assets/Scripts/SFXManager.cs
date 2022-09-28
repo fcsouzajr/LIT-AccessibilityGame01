@@ -22,4 +22,8 @@ public class SFXManager : MonoBehaviour {
             return;
         audio.audioSource.Play();
     }
+    public void Stop(string name){
+        Audio audio = Array.Find(audios, sound => sound.name == name);
+        audio.audioSource.Pause();
+    }
 }

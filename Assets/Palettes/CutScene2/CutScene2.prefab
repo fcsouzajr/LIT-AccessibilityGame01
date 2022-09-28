@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4234785044128504}
   - component: {fileID: 2569400268263936092}
   m_Layer: 31
-  m_Name: CutScene2
+  m_Name: Cutscene2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
