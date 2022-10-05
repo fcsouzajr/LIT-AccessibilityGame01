@@ -5,13 +5,16 @@ using UnityEngine;
 public class Stalactite : MonoBehaviour
 {
 	public float damage;
+	public float speed;
+
+	public GameObject estalactite;
 	private Rigidbody2D rig;
 
 	// void OnTriggerEnter2D(Collider2D collider)
 	// {
 	// 	if (collider.gameObject.tag == "Player")
 	// 	{
-	// 		Player.instance.Damage(damage);
+	// 		estalactite.GetComponent<Rigidbody2D>().RigidbodyConstraints2D.None;
 	// 	}
 	// }
 }
