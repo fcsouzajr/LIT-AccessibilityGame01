@@ -92,7 +92,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
     void Jump() {
         if (delayAttack <= 0) {
-            // FindObjectOfType<SFXManager>().Play("PlayerJump");
+            FindObjectOfType<SFXManager>().Play("PlayerJump");
             body.velocity = Vector2.up * jumpVelocity;
         }
     }

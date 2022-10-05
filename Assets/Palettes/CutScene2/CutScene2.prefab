@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4234785044128504}
   - component: {fileID: 2569400268263936092}
   m_Layer: 31
-  m_Name: Cutscene2
+  m_Name: CutScene2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1108,11 +1108,11 @@ Tilemap:
   - first: {x: 99, y: -35, z: 0}
     second:
       m_TileIndex: 1567
-      m_TileSpriteIndex: 1567
+      m_TileSpriteIndex: 1569
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
+      m_TileColorIndex: 1
       m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
+      m_TileFlags: 3
       m_ColliderType: 1
   - first: {x: 100, y: -35, z: 0}
     second:
@@ -20549,10 +20549,12 @@ Tilemap:
     m_Data: {fileID: 21300656, guid: d38984d00b200334386d0c1f75772a13, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300658, guid: d38984d00b200334386d0c1f75772a13, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: ce863d6fa1b4eef4da75e8ab63cd8de1, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 4b9a0348fcc244641b4d1b55ba538f0e, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 1570
     m_Data:
@@ -20573,8 +20575,10 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 1570
+  - m_RefCount: 1569
     m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - m_RefCount: 1
+    m_Data: {r: 0.77930003, g: 0.50664717, b: 0.58609277, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -2, y: -43, z: 0}
