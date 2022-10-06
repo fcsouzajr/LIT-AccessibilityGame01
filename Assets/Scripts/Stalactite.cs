@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Stalactite : MonoBehaviour
 {
-	public float damage;
-	public float speed;
+	[Header("Attack Variables")]
+    public float attackDamage;
+	GameObject player;
 
-	public GameObject estalactite;
-	private Rigidbody2D rig;
-
-	// void OnTriggerEnter2D(Collider2D collider)
-	// {
-	// 	if (collider.gameObject.tag == "Player")
-	// 	{
-	// 		estalactite.GetComponent<Rigidbody2D>().RigidbodyConstraints2D.None;
-	// 	}
-	// }
+	void Start() {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+	private void OnCollisionEnter2D(Collision2D collider) {
+		//Debug.Log("Entrou");
+        if (collider.gameObject.tag == "Player") {
+			//Debug.Log("Encostou");
+            player.SendMessage("Damage", attackDamage);
+        }
+    }
 }
