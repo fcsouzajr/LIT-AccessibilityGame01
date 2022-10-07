@@ -517,6 +517,35 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &400573797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 400573798}
+  m_Layer: 0
+  m_Name: FallKillers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400573798
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 400573797}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.495338, y: -6.849016, z: -0.056861605}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1672959082}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &419029766
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,59 +899,13 @@ RectTransform:
   - {fileID: 1740346838}
   - {fileID: 518852896}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &701849863
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 701849865}
-  - component: {fileID: 701849864}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &701849864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 701849863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38c2c1da996366b46bc17e3d9d2d6b18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audios:
-  - name: PlayerJump
-    audioClip: {fileID: 8300000, guid: 0d0260ff43a4ef549b6a1475dd6b16aa, type: 3}
-    volume: 1
-    loop: 0
-    audioSource: {fileID: 0}
---- !u!4 &701849865
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 701849863}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.459581, y: 0.17694807, z: 0.033203125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &774430496 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4463229274100924, guid: 07386e5a83dba934eaaac6d02cebaee2,
@@ -999,7 +982,7 @@ Animator:
   m_GameObject: {fileID: 826735465}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 107f13a6d7ac5aa4f8cd60133b90593a, type: 2}
+  m_Controller: {fileID: 9100000, guid: d4c7b27723250084caecba91c3cc0c42, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1076,7 +1059,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 2d7cb8212dc2c494e9415c8cb7d0f0d2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c026b5205ce4d9b448f1f5ad61b11e27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10849,6 +10832,134 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
+--- !u!1001 &1638113997
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114311057804651540, guid: 2e113687f0c55f44fbc34445ce491c2b,
+        type: 2}
+      propertyPath: audios.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953095079293422, guid: 2e113687f0c55f44fbc34445ce491c2b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953095079293422, guid: 2e113687f0c55f44fbc34445ce491c2b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953095079293422, guid: 2e113687f0c55f44fbc34445ce491c2b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953095079293422, guid: 2e113687f0c55f44fbc34445ce491c2b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953095079293422, guid: 2e113687f0c55f44fbc34445ce491c2b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953095079293422, guid: 2e113687f0c55f44fbc34445ce491c2b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953095079293422, guid: 2e113687f0c55f44fbc34445ce491c2b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953095079293422, guid: 2e113687f0c55f44fbc34445ce491c2b, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114311057804651540, guid: 2e113687f0c55f44fbc34445ce491c2b,
+        type: 2}
+      propertyPath: audios.Array.data[3].name
+      value: Collectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 114311057804651540, guid: 2e113687f0c55f44fbc34445ce491c2b,
+        type: 2}
+      propertyPath: audios.Array.data[3].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d8d0e7b714efc374e919c6922ed53741, type: 3}
+    - target: {fileID: 114311057804651540, guid: 2e113687f0c55f44fbc34445ce491c2b,
+        type: 2}
+      propertyPath: audios.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2e113687f0c55f44fbc34445ce491c2b, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1672959081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1672959082}
+  - component: {fileID: 1672959084}
+  - component: {fileID: 1672959083}
+  m_Layer: 0
+  m_Name: FallKiller (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1672959082
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1672959081}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.01, y: 3.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400573798}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1672959083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1672959081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65002b0e56551e142b214a7ef458cf67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1672959084
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1672959081}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.9856834, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.971367, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1673712338
 GameObject:
   m_ObjectHideFlags: 0
