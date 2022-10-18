@@ -10672,7 +10672,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.5494924
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10695,7 +10695,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1405725448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -2.37, y: -1.74, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10712,7 +10712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149b4138fa278f243a527f761fe51b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smooth: 6
+  target: {fileID: 0}
+  smoothSpeed: 0.08
 --- !u!1 &1584260977
 GameObject:
   m_ObjectHideFlags: 0
@@ -10789,7 +10790,7 @@ Prefab:
     - target: {fileID: 114311057804651540, guid: 2e113687f0c55f44fbc34445ce491c2b,
         type: 2}
       propertyPath: audios.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4953095079293422, guid: 2e113687f0c55f44fbc34445ce491c2b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -10826,16 +10827,21 @@ Prefab:
     - target: {fileID: 114311057804651540, guid: 2e113687f0c55f44fbc34445ce491c2b,
         type: 2}
       propertyPath: audios.Array.data[3].name
-      value: Collectable
+      value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 114311057804651540, guid: 2e113687f0c55f44fbc34445ce491c2b,
         type: 2}
       propertyPath: audios.Array.data[3].audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: d8d0e7b714efc374e919c6922ed53741, type: 3}
+      objectReference: {fileID: 8300000, guid: 3480db45de610384ab781709977d4e9b, type: 3}
     - target: {fileID: 114311057804651540, guid: 2e113687f0c55f44fbc34445ce491c2b,
         type: 2}
       propertyPath: audios.Array.data[3].volume
+      value: 0.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 114311057804651540, guid: 2e113687f0c55f44fbc34445ce491c2b,
+        type: 2}
+      propertyPath: audios.Array.data[3].loop
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

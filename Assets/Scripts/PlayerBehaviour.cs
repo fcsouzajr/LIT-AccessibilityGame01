@@ -50,7 +50,7 @@ public class PlayerBehaviour : MonoBehaviour {
         anim = GetComponent<Animator>();
     }
 
-    void Update() {
+    void FixedUpdate() {
         if (!isDead && canInteract) {
             moveX = Input.GetAxis("Horizontal");
             isOnFloor = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
