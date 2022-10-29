@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BossBehaviour : MonoBehaviour {
+public class BossBehaviourDefault : MonoBehaviour {
 
     [Header("Components")]
     Rigidbody2D body;
