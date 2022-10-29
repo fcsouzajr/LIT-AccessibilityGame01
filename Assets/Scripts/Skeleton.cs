@@ -7,19 +7,19 @@ public class Skeleton : MonoBehaviour
 	#region Public Variables
 	public Transform rayCast;
 	public LayerMask raycastMask;
+	public GameObject target;
 	public float rayCastLength;
 	public float attackDistance; //Distância mínima para ataque
 	public float moveSpeed;
 	public float timer; // Cooldown entre ataques
+	public bool inRange; //checar se o player está perto
 	#endregion
 
 	#region Private Variables
 	private RaycastHit2D hit;
-	private GameObject target;
 	private Animator anim;
 	private float distance; //Distância entre o inimigo e o player
 	public bool attackMode;
-	private bool inRange; //checar se o player está perto
 	private float intTimer;
 	#endregion
 
@@ -29,16 +29,6 @@ public class Skeleton : MonoBehaviour
 	}
 	
 	void Update() {
-		// Detecta se o player está do outro lado
-		if (target.transform.position.x > transform.position.x)
-		{
-			transform.eulerAngles = new Vector3(0,0,0);
-			if (inRange)
-			{
-				hit = Physics2D.Raycast(rayCast.position, Vector2.right, rayCastLength, raycastMask);
-			}
-		}
-
 		if (inRange)
 		{
 			hit = Physics2D.Raycast(rayCast.position, Vector2.left, rayCastLength, raycastMask);
@@ -65,12 +55,14 @@ public class Skeleton : MonoBehaviour
 		}
 	}
 
+	// --------- PRIMEIRA INTERAÇÃO
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		if(col.gameObject.tag == "Player")
 		{
 			target = col.gameObject;
 			inRange = true;
+			Flip();
 		}
 	}
 
@@ -93,7 +85,7 @@ public class Skeleton : MonoBehaviour
 	{
 		anim.SetInteger("Idle", 1);
 		anim.SetBool("canWalk", true);
-		if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+		if (!anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
 		{
 			Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
 			transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
@@ -114,5 +106,21 @@ public class Skeleton : MonoBehaviour
 	{
 		attackMode = false;
 		anim.SetBool("Attack", false);
+	}
+
+	// Detecta se o player está do outro lado
+	void Flip()
+	{
+		Vector3 rotation = transform.eulerAngles;
+		if(target.transform.position.x < transform.position.x)
+		{
+			rotation.y = 180f;
+		}
+		else
+		{
+			rotation.y = 0f;
+		}
+
+		transform.eulerAngles = rotation;
 	}
 }
