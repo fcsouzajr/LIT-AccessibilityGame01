@@ -18,9 +18,8 @@ public class Skeleton : MonoBehaviour
 	private GameObject target;
 	private Animator anim;
 	private float distance; //Distância entre o inimigo e o player
-	private bool attackMode;
+	public bool attackMode;
 	private bool inRange; //checar se o player está perto
-	private bool cooling; //checar a parada do inimigo depois do ataque
 	private float intTimer;
 	#endregion
 
@@ -30,26 +29,39 @@ public class Skeleton : MonoBehaviour
 	}
 	
 	void Update() {
+		// Detecta se o player está do outro lado
+		if (target.transform.position.x > transform.position.x)
+		{
+			transform.eulerAngles = new Vector3(0,0,0);
+			if (inRange)
+			{
+				hit = Physics2D.Raycast(rayCast.position, Vector2.right, rayCastLength, raycastMask);
+			}
+		}
+
 		if (inRange)
 		{
 			hit = Physics2D.Raycast(rayCast.position, Vector2.left, rayCastLength, raycastMask);
-			// RaycastDebugger();
 		}
+
 
 		//Quando o player for detectado
 		if(hit.collider != null)
 		{
 			EnemyLogic();
 		}
+		// Se não tiver nada dentro do Raycast (área de detecção)
 		else if(hit.collider == null)
 		{
 			inRange = false;
 		}
 
+		// Se o player sair da distância entre ele e o inimigo
 		if (inRange == false)
 		{
 			anim.SetBool("canWalk", false);
 			StopAttack();
+			anim.SetInteger("Idle", 0);
 		}
 	}
 
@@ -69,7 +81,7 @@ public class Skeleton : MonoBehaviour
 		if(distance > attackDistance)
 		{
 			Move();
-			StopAttack();
+			StopAttack();	
 		}
 		else if(attackDistance >= distance)
 		{
@@ -79,8 +91,9 @@ public class Skeleton : MonoBehaviour
 
 	void Move()
 	{
+		anim.SetInteger("Idle", 1);
 		anim.SetBool("canWalk", true);
-		if (!anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
+		if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
 		{
 			Vector2 targetPosition = new Vector2(target.transform.position.x, transform.position.y);
 			transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
@@ -92,6 +105,7 @@ public class Skeleton : MonoBehaviour
 		timer = intTimer; //reset timer
 		attackMode = true;
 
+		anim.SetInteger("Idle", 1);
 		anim.SetBool("canWalk", false);
 		anim.SetBool("Attack", true);
 	}
@@ -101,16 +115,4 @@ public class Skeleton : MonoBehaviour
 		attackMode = false;
 		anim.SetBool("Attack", false);
 	}
-
-	// void RaycastDebugger()
-	// {
-	// 	if(distance > attackDistance)
-	// 	{
-	// 		Debug.DrawRay(rayCast.position. Vector2.left * rayCastLength, Color.red);
-	// 	}
-	// 	else if(attackDistance > distance)
-	// 	{
-	// 		Debug.DrawRay(rayCast.position. Vector2.left * rayCastLength, Color.green);
-	// 	}
-	// }
 }
