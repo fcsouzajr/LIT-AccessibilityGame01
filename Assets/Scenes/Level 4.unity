@@ -439,6 +439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 196718372}
   - component: {fileID: 196718373}
+  - component: {fileID: 196718374}
   m_Layer: 9
   m_Name: hitBox
   m_TagString: Untagged
@@ -484,6 +485,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.11250983}
   m_EdgeRadius: 0
+--- !u!114 &196718374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 196718371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd84ee3ba71a4f44b20e064eb481116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &222266073 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224991480511950410, guid: 1ac53f1335d67194688c3b66338e296c,
@@ -11260,7 +11272,7 @@ Transform:
   m_GameObject: {fileID: 941479140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.032, y: 0.286, z: 0}
-  m_LocalScale: {x: 1.3894548, y: 0.92812586, z: 1}
+  m_LocalScale: {x: 2.0516171, y: 0.92812586, z: 1}
   m_Children: []
   m_Father: {fileID: 2116341098}
   m_RootOrder: 4
@@ -15032,8 +15044,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1188840673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.068, y: -0.052, z: 0}
-  m_LocalScale: {x: 2.01, y: 1, z: 1}
+  m_LocalPosition: {x: 0.068, y: -0.064, z: 0}
+  m_LocalScale: {x: 2.01, y: 1.2000002, z: 1}
   m_Children: []
   m_Father: {fileID: 2116341098}
   m_RootOrder: 3
@@ -18010,6 +18022,8 @@ MonoBehaviour:
   attackDistance: 1.1
   moveSpeed: 2
   timer: 0
+  hpSkel: 0
+  dmgSkel: 0
   hotZone: {fileID: 941479140}
   triggerArea: {fileID: 1188840673}
   target: {fileID: 0}

@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Skeleton : MonoBehaviour
 {
+
 	#region Public Variables
 	public float attackDistance; //Distância mínima para ataque
 	public float moveSpeed;
 	public float timer; // Cooldown entre ataques
+	
+	public float hpSkel = 50f;
+	public float dmgSkel = 30f;
+
 	public GameObject hotZone;
 	public GameObject triggerArea;
 	[HideInInspector] public Transform target;
@@ -19,11 +24,14 @@ public class Skeleton : MonoBehaviour
 	private float distance; //Distância entre o inimigo e o player
 	public bool attackMode;
 	private float intTimer;
+
+	GameObject player;
 	#endregion
 
 	void Awake() {
 		intTimer = timer;
 		anim = GetComponent<Animator>();
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	void Update()
@@ -60,6 +68,7 @@ public class Skeleton : MonoBehaviour
 		}
 	}
 
+	// ---------- Apenas para animação
 	void Attack()
 	{
 		timer = intTimer; //reset timer
@@ -70,13 +79,30 @@ public class Skeleton : MonoBehaviour
 		anim.SetBool("Attack", true);
 	}
 
+	// -Desferir DANO
+	public void DealDamage()
+	{
+		player.SendMessage("Damage", dmgSkel); //coisas dando errado aq...
+	}
+
+	// -Sofrer Dano
+	void Hurt(float dmgPlayer) // ... e aqui
+	{
+		// hp -= dmgPlayer;
+
+		// if(hp <= 0)
+		// {
+		// 	Destroy(gameObject);
+		// }
+	}
+
 	void StopAttack()
 	{
 		attackMode = false;
 		anim.SetBool("Attack", false);
 	}
 
-	// Detecta se o player está do outro lado
+	// Verifica pra qual lado virar
 	public void Flip()
 	{
 		Vector3 rotation = transform.eulerAngles;
@@ -88,7 +114,6 @@ public class Skeleton : MonoBehaviour
 		{
 			rotation.y = 0f;
 		}
-
 		transform.eulerAngles = rotation;
 	}
 }

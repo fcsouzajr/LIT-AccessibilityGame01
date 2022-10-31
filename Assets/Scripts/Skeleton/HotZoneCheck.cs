@@ -38,6 +38,8 @@ public class HotZoneCheck : MonoBehaviour {
 			gameObject.SetActive(false);
 			enemyParent.triggerArea.SetActive(true);
 			enemyParent.inRange = false;
+			anim.SetBool("canWalk", false);
+			anim.SetInteger("Idle", 0);
 		}
 	}
 }
