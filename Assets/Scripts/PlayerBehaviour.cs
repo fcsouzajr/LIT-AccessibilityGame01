@@ -109,7 +109,8 @@ public class PlayerBehaviour : MonoBehaviour {
 
         Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(enemyCheck.position, enemyCheckRadius, whatIsEnemy);
         for(int i = 0; i < enemiesInRange.Length; i++) {
-            enemiesInRange[i].SendMessage("Damage", attackDamage);
+            //Debug.Log("Achou enemy");
+            enemiesInRange[i].SendMessageUpwards("Damage", attackDamage);
         }
     }
 

@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Skeleton : MonoBehaviour
 {
-
 	#region Public Variables
 	public float attackDistance; //Distância mínima para ataque
 	public float moveSpeed;
 	public float timer; // Cooldown entre ataques
 	
-	public float hpSkel = 50f;
-	public float dmgSkel = 30f;
+	public float hp = 50f;
+	public float attackDamage=10f;
 
 	public GameObject hotZone;
 	public GameObject triggerArea;
@@ -33,7 +32,6 @@ public class Skeleton : MonoBehaviour
 		anim = GetComponent<Animator>();
 		player = GameObject.FindGameObjectWithTag("Player");
 	}
-	
 	void Update()
 	{
 		if (inRange)
@@ -73,7 +71,6 @@ public class Skeleton : MonoBehaviour
 	{
 		timer = intTimer; //reset timer
 		attackMode = true;
-
 		anim.SetInteger("Idle", 1);
 		anim.SetBool("canWalk", false);
 		anim.SetBool("Attack", true);
@@ -82,18 +79,14 @@ public class Skeleton : MonoBehaviour
 	// -Desferir DANO
 	public void DealDamage()
 	{
-		player.SendMessage("Damage", dmgSkel); //coisas dando errado aq...
+		player.SendMessage("Damage", attackDamage);
 	}
 
-	// -Sofrer Dano
-	void Hurt(float dmgPlayer) // ... e aqui
-	{
-		// hp -= dmgPlayer;
-
-		// if(hp <= 0)
-		// {
-		// 	Destroy(gameObject);
-		// }
+	public void Damage(float damage){
+		hp -= hp > damage ? damage:hp;
+		if(hp<=0){
+			Destroy(gameObject);
+		}
 	}
 
 	void StopAttack()
