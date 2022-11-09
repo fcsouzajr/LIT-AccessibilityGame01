@@ -11,11 +11,11 @@ public class Stalactite : MonoBehaviour
 	void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
     }
-	private void OnCollisionEnter2D(Collision2D collider) {
-		//Debug.Log("Entrou");
-        if (collider.gameObject.tag == "Player") {
-			//Debug.Log("Encostou");
-            player.SendMessage("Damage", attackDamage);
+	private void OnTriggerStay2D(Collider2D collider) {
+        if(collider is CapsuleCollider2D){
+            if (collider.gameObject.tag == "Player") {
+                player.SendMessage("Damage", attackDamage);
+            } 
         }
     }
 }
