@@ -10,7 +10,7 @@ public class Skeleton : MonoBehaviour
 	public float timer; // Cooldown entre ataques
 	
 	public float hp = 50f;
-	public float attackDamage=10f;
+	public float attackDamage = 10f;
 
 	public GameObject hotZone;
 	public GameObject triggerArea;
