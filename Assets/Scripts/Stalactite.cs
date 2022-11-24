@@ -18,4 +18,11 @@ public class Stalactite : MonoBehaviour
             } 
         }
     }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if(coll.gameObject.layer == 9) {
+            Destroy(gameObject, 1.5f);
+        }
+    }
 }
